@@ -34,3 +34,15 @@ function toggleRound() {
 }
 
 pic.addEventListener('click', toggleRound);
+
+pic.alt = 'Random Pic';
+pic.width = 200;
+console.log(pic.alt);
+console.log(pic.naturalWidth); 
+
+pic.addEventListener('load', function(){
+    console.log(pic.naturalWidth);
+});
+
+pic.setAttribute('alt', 'Very random pic');
+console.log(pic.getAttribute('alt'))
