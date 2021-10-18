@@ -1,6 +1,6 @@
 const butts = document.querySelector('.butts');
 const coolButton = document.querySelector('.cool');
-console.log(butts);
+console.log('You clicked a button');
 
 function handleClick(){
     console.log('It got clicked!');
@@ -19,8 +19,24 @@ coolButton.addEventListener('click', handleClick);
 // butts.removeEventListener('click', handleClick);
 
 const buyButtons = document.querySelectorAll('button.buy');
-buyButtons.forEach( (buyButton) => {
-    //parameter can be called anything
-    console.log('Binding the buy button');
-    buyButton.addEventListener('click', buyItem);
+
+function handleBuyButtonClick(event){
+    const button = event.target;
+
+    console.log('You are buying it');
+    console.log(parseFloat (event.target.dataset.price));
+    console.log(event.target);
+    
+    // event.stopPropagation();
+}
+//Stop this event propagation
+
+buyButtons.forEach(function(buyButton){
+    buyButton.addEventListener('click', handleBuyButtonClick)
 });
+
+window.addEventListener('click', function(event){
+    console.log('YOU CLICKED THE WINDOW');
+    console.log(event.target);
+    event.stopPropagation();
+}, { capture: true})
