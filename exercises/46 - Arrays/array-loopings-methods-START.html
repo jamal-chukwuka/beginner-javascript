@@ -129,6 +129,36 @@
       Looping Methods
     */
 
+    function logTopping(topping){
+      console.log(topping);
+    }
+    toppings.forEach(topping => {
+      console.log(topping);
+    });
+
+    // function logToppingWithIndex(topping, index, array){
+    //     console.log(topping, index, array);
+    // }
+     function logToppingWithIndex(topping, index, array){
+        console.log(topping);
+        console.log(originalArray[index + 1]);        
+    }
+    
+    const nextTopping = originalArray[index + 1];
+    const prevTopping = originalArray[index - 1];
+
+    prevTopping ? console.log(prevTopping) : null;
+    nextTopping ? console.log(nextTopping) : null;
+
+    index === array.length - 1? console.log('Goodbye') :
+    console.log("getting the next topping");
+
+    toppings.forEach(logTopping);
+    toppings.forEach(logToppingWithIndex);
+
+    console.log(originalArray[index + 1]);
+
+  
   </script>
 </body>
 
