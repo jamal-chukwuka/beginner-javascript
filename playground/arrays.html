@@ -11,6 +11,96 @@
 </head>
 
 <body>
+  <script>
+    const names = ['josh', 'nezi', 'jamal'];
+    // const names = new Array();
+
+    //access last item of array
+    console.log(names[names.length - 1]);
+
+    names.push('lux');
+    console.log(names);
+    //to add an array to an new array
+    const names2 = [...names, 'max'];
+    console.log(names2);
+
+    //adds array to the front 
+    names.unshift('Boobie Miles');
+    console.log(names);
+
+    const names3 = ['topDog', ...names];
+    console.log(names3);
+
+    const bikes = ['miyata', 'kawasaki', 'harley', 'ninja'];
+    console.log(bikes);
+
+    const newBikes = [
+      ...bikes.slice(0, 2), 
+      'mazda',
+      ...bikes.slice(2)
+    ]
+    console.log(newBikes);
+
+    const newBikes2 = [
+      ...newBikes.slice(0,3),
+      ...newBikes.slice(4),
+    ];
+
+    console.log(newBikes2);
+
+    const comments = [
+      { text: 'Cool beans', id: 124},
+      { text: 'Love this!', id: 133},
+      { text: 'Neato', id: 233},
+      { text: 'so good', id: 433},
+
+    ]
+
+    function deleteComment(id, comments) {
+      //first find the index of the item in the array
+      //make a new array without that item in it
+      //return our new array
+      const commentIndex = comments.findIndex(comment => comment.id ===id);
+
+      return [
+        ...comments.slice(0, commentIndex),
+        ...comments.slice(commentIndex + 1),
+      ]
+    }
+
+
+    const kaitIndex = names.findIndex(name => name === 'nezi');
+
+    const newNamesWithoutKait = [
+      ...names.slice(0, kaitIndex),
+      // everything after Kait index
+      ...names.slice(kaitIndex + 1),
+
+    ];
+    const newNames999 = newNamesWithoutKait.flat();
+    console.log(newNames999);
+
+
+    // const numbers = [1,2,3,4,5,6,7,8,9];
+    // numbers.splice(3,2);
+    // console.log(numbers);
+
+
+    // //Mutation Method
+    // const numbers = [1,2,3,4,5,6,7,8,9];
+    // // const numbersBackwards = numbers.reverse();
+    // // console.log(numbersBackwards);
+    // console.log(numbers);
+    // //original array has also been changed
+
+    // //Immutable - they don't change original data
+    // const numbersReversed = [...numbers].reverse();
+    // console.log(numbersReversed);
+
+    // const pizzaSlice = numbers.slice(2,4);
+    // console.log(pizzaSlice);
+    // console.log(numbers);
+  </script>
 
 </body>
 

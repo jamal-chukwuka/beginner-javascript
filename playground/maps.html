@@ -9,7 +9,43 @@
 </head>
 
 <body>
+  <ul class="prizes"></ul>
   <script>
+
+    const person1 = {
+      name: 'josh',
+      age: 200
+    }
+    const myMap =  new Map();
+    myMap.set('name','Josh');
+    myMap.set(100, 'This is a number');
+    myMap.set(person1, 'Really Cool');
+
+    console.log(myMap);
+    console.log(myMap.get(person1));
+
+    const score = 100;
+    const prizes = new Map();
+    prizes.set(100, 'Bear');
+    prizes.set(200, 'Duck');
+    prizes.set(300, 'Car');
+
+    console.log(`you win a ${prizes.get(score)}`);
+    //select that ul
+    prizes.forEach(entry => {
+      console.log(entry);
+    })
+
+    //
+    for(const [points, prize] of prizes) {
+      const li = `<li>${points} - ${prize}</li>`
+      ul.insertAdjacentHTML('beforeend', li);
+    }
+    //
+
+    // .has()
+
+    // .delete()
 
   </script>
 </body>

@@ -129,6 +129,126 @@
       Looping Methods
     */
 
+    // function logTopping(topping){
+    //   console.log(topping);
+    // }
+    // toppings.forEach(topping => {
+    //   console.log(topping);
+    // });
+
+    // // function logToppingWithIndex(topping, index, array){
+    // //     console.log(topping, index, array);
+    // // }
+    //  function logToppingWithIndex(topping, index, array){
+    //     console.log(topping);
+    //     console.log(originalArray[index + 1]);        
+    // }
+    
+    // const nextTopping = originalArray[index + 1];
+    // const prevTopping = originalArray[index - 1];
+
+    // prevTopping ? console.log(prevTopping) : null;
+    // nextTopping ? console.log(nextTopping) : null;
+
+    // index === array.length - 1? console.log('Goodbye') :
+    // console.log("getting the next topping");
+
+    // toppings.forEach(logTopping);
+    // toppings.forEach(logToppingWithIndex);
+
+    // console.log(originalArray[index + 1]);
+
+    function addArms(face){
+      return `👋🏿 ${face} 👋🏿`
+    }
+
+     const toys = faces.map(addArms);
+
+     console.log(toys);
+
+    function bosify(name){
+      return `${name} Bos`
+    }
+
+    function capitalize(word){
+      return `${word[0].toUpperCase()} ${word.slice()}`;
+    }
+
+    const fullNames = ['wes', 'kait', 'poppy']
+      .map(capitalize)
+      .map(bosify);
+
+      console.log(fullNames);
+
+      const cleanPeople = people.map(function(person){
+        console.log(person);
+        const birthday = new Date(person.date).getTime();
+        //get their birthday
+        const now = Date.now();
+        // console.log(birthday, now);
+        //figure out how old they are
+        const age = Math.floor((now - birthday) / 31536000000);
+        console.log(age);
+        //return their full name and bday in an object
+        return {
+        age,
+        name: `${person.names.first} ${person.names.last}`,
+      }
+      });
+
+      console.log(cleanPeople);
+      const over40 = cleanPeople.filter(person => person.age > 40 ? true : false );
+
+      function findById(id){
+        return function isStudent(student) {
+            return student.id === id;
+        }
+      }
+
+
+      function findByProp(prop, propWeAreLookingFor){
+        return function isStudent(student){
+          return student[prop] === propWeAreLookingFor;
+        }
+
+      }
+
+      const student = students.find(findByProp('id','565a'));
+      const student2 = students.find(findByProp('first_name','Micki'));
+
+
+   
+ 
+      console.log(student);
+      console.clear();
+      
+      function tallyNumbers(tally, currentTotal){
+        console.log(`The current tally is ${tally}`);
+        console.log(`The current tally is ${currentTotal}`)
+        console.log('-------------');
+
+        return tally + currentTotal;
+
+      }
+
+      const allOrders = orderTotals.reduce(tallyNumbers, 0);
+
+      console.log(allOrders);
+
+      function inventoryReducer(totals, item){
+        console.log(`Looping over ${item.type}`);
+        totals[item.type]  = totals[item.type] + 1 || 1;
+
+        return totals;
+      }
+
+      const inventoryCounts = inventory.reduce(inventoryReducer, {});
+      console.log(inventoryCounts);
+
+      const totalInventoryPrice = inventory.reduce((acc,item) => acc + item.price, 0);
+
+      console.log(totalInventoryPrice);
+  
   </script>
 </body>
 
