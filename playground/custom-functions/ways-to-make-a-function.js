@@ -1,84 +1,102 @@
-//Types of functions 
+// Types of functions 
 
-function doctorize(firstName){
-    return `Dr. ${firstName}`;
-}
+//OG function 
 
-//anonymous function
-// function (firstName){
-//     return `Dr. ${firstName}`;
+// function doctorize(firstName){
+//     return `Dr. ${firstName}`
 // }
 
-//Function Expression
-//Why use it? Hoisting...does not hoist 
-const doctorize2 = function (firstName){
-    return `Dr. ${firstName}`;
+//Anonymous function
+const anon = function (firstName){
+    return `Dr. ${firstName}`
 }
 
-//Arrow functions are anonymous 
-//explicit
-const inchToCM = (inches) => {
+// Function Expression
+const doctorize = function (firstName){
+    return `Dr. ${firstName}`
+}
+
+// Arrow functions (are all anonymous and require var declaration)
+
+// Old function approach
+
+// function inchToCM(inches) {
+//     return inches * 2.54;
+// }
+
+// New Approach
+
+// Explicit Return
+const inchToCm = (inches) => {
     return inches * 2.54;
 }
 
-//implicit return 
-const inchToCM2 = (inches) => inches * 2.54;
+//Implicit Return
+const inchToCm2 = (inches) => inches * 2.54;
 
-function add(a, b = 3) {
-    const total = a + b;
-    return total;
+// Example 
+const add = (a, b = 3) => { return a + b };
+
+// Returning an Object 
+
+// Regular Degular
+function makeABaby(first, last){
+    const baby = {
+        name: `${first} ${last}`,
+        age: 0
+    }
+    return baby;
 }
 
-const add2 = (a, b =3 ) => a + b;
+// Arrow Dub
 
-// function makeABaby(first, last) {
-//     const baby = {
-//         name: `${first} ${last}`,
-//         age: 0
-//     }
-//     return baby;
-// }
+//Explicit Return
 
-//implicit return of an object
+const makeDaBaby = (first, last) => { return { name: `${first} ${last}`, age: 0}}
 
-const makeABaby = (first, last) => ({name: `${first} ${last}`, age: 0 });
+//Implicit Return requires parenthesis
+
+const makeDBaby = (first, last) => ({ name: `${first} ${last}`, age: 0});
+
 
 //IIFE
-//Immmediately Invoked Function Expression
 
-(function() {
-    console.log('Running the Anon function');
-    return 'You are cool';
-})();
+//Immediately Invoked Function Expression
 
-//Methods!!! Function iinside of an object
+(function(age) {
+    return `You are cool and age ${age}`;
+  })(10);
 
-const Josh = {
-    name: 'Josh',
+// Methods
+const jamal = {
+    name: 'Jamal Chukwuka',
     sayHi: function(){
-        console.log('Hey Josh');
-        return 'Hey Josh';
+        console.log('Hey Jamal');
+        return `Salaams`
     },
-    //Short hand method
+    // Short hand method
     yellHi(){
-        console.log('Hey Josh');
-    }, 
-    //Arrow function
+        console.log('Hey Jamal');
+    },
+
+    // Arrow function
     wisperHi: () => {
-        console.log(`Hi Josh, I'm a mouse`);
+        console.log(`Hi Jamal a mouse squeaked`);
     }
 }
 
-//Callback Functions
-//Click callback
-const button =  document.querySelector('.clickMe');
+// Callback Functions 
+const button = document.querySelector('.clickMe');
+
 console.log(button);
 
-button.addEventListener('click', Josh.yellHi);
+function handleClick(){
+    console.log('Great Clicking!!');
+}
 
-//second approach 
-button.addEventListener('click', function(){
-    console.log('This works too!');
-});
+button.addEventListener('click', handleClick());
 
-setTimeout(Josh.sayHi, 1000);
+// Timer Callback
+setTimeout(function(){
+    console.log('Done time to eat!');
+}, 1000)

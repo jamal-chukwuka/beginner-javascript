@@ -1,23 +1,51 @@
+console.log('It works');
 
+// Function Definition
+function calculateBill(){
+    //function block or body
+    console.log('Running Calculate Bill');
+    const total = 100 * 1.13;
+    return total;
+}
 
+// Function Call
+const myTotal = calculateBill();
+console.log(`Your Total is $${myTotal}`);
 
-function calculateBill(billAmount, taxRate = 0.13, tipRate = 0.15){
-    //  this is the function body
-    console.log('The function is running');
+//Bad Practice, but possible
+// console.log(`Your total is $${calculateBill()}`);
+
+//Arguments and Parameters Exercises
+
+// >>>>>>>>>>>>>>>>>>>>  Parameters 
+function calculateTrill(billAmount, taxRate = 0.13, tipRate = 
+    0.15){
+
     const total = billAmount + (billAmount * taxRate) + (billAmount * tipRate);
     return total;
 }
-//Function Call
-const myTotal = calculateBill(100, 0.13);
-const myTotal2 = calculateBill(200, 0.13);
+// >>>>>>>>>>> Arguments
+// calculateTrill(100, 0.13);
 
-// console.log(`My total is $${myTotal}`);
-// console.log(`My total is $${myTotal2}`);
+const josTotal = 500;
+const josTaxRate = 0.3;
+const myTrillTotal = calculateTrill(josTotal, josTaxRate);
 
-function doctorize(name) {
-    return `Dr. ${name}`
+function sayHiTo(firstName){
+    return `Hello ${firstName}`;
 }
 
-function yell(name = 'Default') {
-    return `HEY ${name.toUpperCase()}`;
+const greeting = sayHiTo('Josh');
+
+
+function doctorize(name){
+    return `Dr. ${name}`;
 }
+
+function yell(name = 'Jamala'){
+    return `HEY ${name.toUpperCase()}`
+}
+// Inner function is always called first
+console.log(yell(doctorize('Josh')));
+
+//Only can pass undefined 
