@@ -18,3 +18,9 @@ function isCool(name) {
     return cool;
 }
 
+// Example 2 
+const age = 100;
+
+function go(){
+    const hair = 'blonde';
+}

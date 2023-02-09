@@ -1,22 +1,33 @@
 // Make a div
-
+const myDiv = document.createElement('div');
 // add a class of wrapper to it
-
+myDiv.classList.add('wrapper');
 // put it into the body
-
+document.body.appendChild(myDiv);
 // make an unordered list
-
+// const myUL = document.createElement('ul');
+// Approach 2 by Wes
+const ul = `<ul>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+</ul>`;
 // add three list items with the words "one, two, three" in them
+myDiv.innerHTML = ul;
+console.log(myDiv);
 // put that list into the above wrapper
-
 // create an image
-
+const myImg = document.createElement('img');
 // set the source to an image
+myImg.src = 'https://picsum.photos/500';
 // set the width to 250
+myImg.width = 250;
 // add a class of cute
+myImg.classList.add('cute');
 // add an alt of Cute Puppy
+myImg.alt = 'Cute Puppy';
 // Append that image to the wrapper
-
+myDiv.appendChild(myImg);
 // with HTML string, make a div, with two paragraphs inside of it
 // put this div before the unordered list from above
 
